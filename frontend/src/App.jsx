@@ -32,9 +32,9 @@ const App = () => {
   }, []);
   return (
     <StrictMode>
-      <Router>
+      <Router basename="/">
         <Navbar />
-        <Routes basename="/">
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
@@ -58,5 +58,6 @@ const App = () => {
 };
 
 export default App;
+
 
 
