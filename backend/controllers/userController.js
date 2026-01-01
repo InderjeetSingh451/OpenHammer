@@ -8,7 +8,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return next(new ErrorHandler("Profile Image Required", 400));
   }
-  console.log(req.body);
+  // console.log(req.body);
 
   const { profileImage } = req.files;
   const allowedFormats = ["image/png", "image/jpg", "image/webp", "image/jpeg"];
@@ -95,7 +95,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
   generateToken(user, "User Registered", 201, res);
 });
 export const login = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -142,3 +142,4 @@ export const fetchLeaderboard = catchAsyncErrors(async (req, res, next) => {
     leaderboard,
   });
 });
+
