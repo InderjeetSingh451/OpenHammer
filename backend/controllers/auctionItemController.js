@@ -9,7 +9,7 @@ export const addNewAuctionItem = catchAsyncErrors(async (req, res, next) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return next(new ErrorHandler("Auction Item image required", 400));
   }
-  console.log(req.body);
+  // console.log(req.body);
 
   const { image } = req.files;
 
@@ -58,7 +58,7 @@ export const addNewAuctionItem = catchAsyncErrors(async (req, res, next) => {
     createdBy: req.user._id,
     endTime: { $gt: Date.now() },
   });
-  console.log(alreadyOneAuctionActive);
+  // console.log(alreadyOneAuctionActive);
   if (alreadyOneAuctionActive.length > 0) {
     return next(new ErrorHandler("You already have one active auction.", 400));
   }
@@ -71,7 +71,7 @@ export const addNewAuctionItem = catchAsyncErrors(async (req, res, next) => {
     }
   );
   if (!cloudinaryResponse || cloudinaryResponse.error) {
-    console.log("sfdfdsf ");
+    // console.log("sfdfdsf ");
     console.error(
       "Cloudinary error:",
       cloudinaryResponse.error || "Unknown cloudinary error"
@@ -219,3 +219,4 @@ export const republishItem = catchAsyncErrors(async (req, res, next) => {
     createdBy,
   });
 });
+
