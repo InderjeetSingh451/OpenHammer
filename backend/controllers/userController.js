@@ -125,8 +125,10 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
   res
     .status(200)
     .cookie("token", "", {
-      expires: new Date(Date.now()),
       httpOnly: true,
+      secure: true,      // same as login cookie
+      sameSite: "none",  // same as login cookie
+      expires: new Date(Date.now()),
     })
     .json({
       success: true,
@@ -142,4 +144,5 @@ export const fetchLeaderboard = catchAsyncErrors(async (req, res, next) => {
     leaderboard,
   });
 });
+
 
