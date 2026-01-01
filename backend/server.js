@@ -23,14 +23,14 @@ cloudinary.v2.config({
 });
 
 const app = express();
-
+app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
-    methods: ["POST", "GET", "PUT", "DELETE"],
+    origin: "https://openhammer-online-auction-website.onrender.com",
     credentials: true,
   })
 );
+
 // used to access cookies generated
 app.use(cookieParser());
 
@@ -62,3 +62,4 @@ const PORT = process.env.PORT;
 app.listen(PORT, () =>
   console.log(`SERVER STARTED AT PORT http://localhost:${PORT}`)
 );
+
