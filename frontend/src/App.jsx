@@ -34,7 +34,7 @@ const App = () => {
     <StrictMode>
       <Router>
         <Navbar />
-        <Routes>
+        <Routes basename="/frontend">
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
@@ -58,3 +58,4 @@ const App = () => {
 };
 
 export default App;
+
